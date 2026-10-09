@@ -1,0 +1,41 @@
+{
+  "name": "model-router",
+  "version": "0.1.0",
+  "author": { "name": "Echo Mind Automation" },
+  "description": "Runs each turn and subagent on the smallest model that fits the task; protected work stays on the top model.",
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "mode": {
+      "type": "string",
+      "title": "Routing mode",
+      "description": "auto switches models, suggest only shows what it would pick, off does nothing.",
+      "default": "auto",
+      "options": ["auto", "suggest", "off"]
+    },
+    "midModel": {
+      "type": "string",
+      "title": "Mid-tier model",
+      "description": "Alias or full id for everyday implementation work.",
+      "default": "sonnet"
+    },
+    "smallModel": {
+      "type": "string",
+      "title": "Small-tier model",
+      "description": "Alias or full id for lookups, summaries, trivial edits and test runs.",
+      "default": "haiku"
+    },
+    "contextLimit": {
+      "type": "number",
+      "title": "Downshift context limit (tokens)",
+      "description": "Above this many tokens in the live context, the main thread stays on its own model.",
+      "default": 150000
+    },
+    "classifier": {
+      "type": "string",
+      "title": "Classifier",
+      "description": "rules is local regex only. rules+model also asks the small model about prompts the rules cannot place.",
+      "default": "rules",
+      "options": ["rules", "rules+model"]
+    }
+  }
+}

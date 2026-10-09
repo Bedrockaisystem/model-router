@@ -1,0 +1,13 @@
+{
+  "name": "model-router",
+  "owner": {
+    "name": "Echo Mind Automation"
+  },
+  "plugins": [
+    {
+      "name": "model-router",
+      "source": "./"
+    }
+  ],
+  "description": "Routes Claude Code turns and subagents to the smallest model that fits each task."
+}
